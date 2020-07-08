@@ -1,0 +1,24 @@
+html,body{ /*보통 html과body엔 여백이 들어가잇음*/
+    margin:0;
+}
+
+ul,li{ /*앞으로 나올 ul과 li은 계속 이 명령을 먹음*/
+    margin:0; padding:0;
+    list-style:none;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin:0; padding:0;
+} /*p태그 상하여백 없애줌,원래h1에 패딩은 안들어가잇지만 그냥 넣어줌...*/
+a{
+    text-decoration: none;
+    color:#555;
+} /*페이지의 글자들이 이 값을 적용하게 됨*/
+*{
+    box-sizing: border-box;
+} /*width나 height값으로 박스사이즈가 변형되는 걸 방지할 수 잇음*/
+
+/*위에있는 건 기본적인 태그정의면 밑에있는 애들은 꾸미는 것 뿐...밑에있는 애들의 값이 죽고 위에잇는 애들이 이겨먹음...(위에잇는 태그의 우선순위가 1등임) 위에잇는 태그를 쓰는건 전체 페이지 베이지값이 유지되길 바랄때 사용함*/
+/*
+.aaa{
+    box-sizing: 1211;
+}*/

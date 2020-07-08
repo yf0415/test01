@@ -1,0 +1,136 @@
+@import url('common.css');
+
+header{}
+header > div{ /*(헤더 모체 바로 밑에있는 자식요소한테만 해당하는 태그값이라 표시해준거 ">")*/
+    width:1170px; 
+    margin:70px auto;
+    /*flex를 사용해 가로정렬세로정렬사용하기위해선 아래세태그만기억해두자*/
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
+header div h1{}
+header div h1 a{}
+
+header div nav{}
+header div nav ul{}
+header div nav ul li{
+    display:inline-block;
+    vertical-align: top; /*(a태그들위로정렬시켜줌)*/
+    margin:0 20px;
+    position:relative;
+}
+header div nav ul li > a{
+    padding:20px; (margin일경우엔 글씨에다 가져가야 하이퍼링크이동이 가능했는데 padding쓰면 근처 20px에 가져다대도 링크이동가능하게 설정된다)
+    display:inline-block;
+}
+header div nav ul li div{
+    border:1px solid #000;
+    border-bottom:none;
+    position:absolute;
+    left:0; top:120%; /*(현재body가 기점을 가지고있으니 li가 기점이 될 수 있도록 포지션을 넣어줘야함 그래서 relative가 위에 들어가잇음... top100%을 넣으면 아예 동떨어져버리니까 살짝 겹치게 98%입력)*/
+    width:100%;
+    background:rgba(255,255,255,0.6);
+    opacity:0;
+    transition:.5s;
+}
+header div nav ul li:hover div{
+    opacity:1; top:99%;
+}
+header div nav ul li div a{
+    display:block;
+    border-bottom:1px solid #000;
+    padding:10px;
+}
+
+
+.menu-trigger,
+.menu-trigger span {
+	display: inline-block;
+	transition: all .4s;
+	box-sizing: border-box;
+}
+
+.menu-trigger {
+	position: relative;
+	width: 70px;
+	height: 44px;
+        transform:scale(0.5); /*(scale-요소를줄이거나키울수있음. 1이100% 현재값에서40%가나옴)*/
+}
+
+.menu-trigger span {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background-color: #000;
+	border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+	top: 0;
+}
+
+.menu-trigger span:nth-of-type(2) {
+	/*top: 20px;*/
+    top:50%;
+    transform:translateY(-50%);
+    width:70%;
+}
+
+.menu-trigger span:nth-of-type(3) {
+	bottom: 0;
+    width:85%;
+}
+
+
+main{}
+.spot{
+    width:100%;
+    height:750px;
+    background:url('../img/background.jpg') no-repeat;
+}
+.spot article{
+    width:900px;
+    background:#fff;
+    margin:0 auto;
+    padding:50px 60px;
+    position:relative; top:30%;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+.spot article h2{}
+.spot article h2 span{
+    float:right;
+    font-size:0;
+}
+.spot article h2 span a{
+    width:15px; height:15px;
+    background:url('../img/icon_FTI.gif') no-repeat;
+    display:inline-block;
+    font-size:0;
+    margin:0 5px; /*(a태그 모두한테 좌우 5픽셀씩줌)*/
+}
+.spot article h2 span a:nth-of-type(1){
+    background-position:3px 0;
+}
+.spot article h2 span a:nth-of-type(2){
+    background-position:-33px 0;
+}
+.spot article h2 span a:nth-of-type(3){
+    background-position:-70px 0;
+}
+
+.spot article figure{
+    margin:0;
+}
+.spot article figure p{margin-top:100px;}
+.spot article figure p img{width:100%;}
+
+.spot article figure figcaption{
+    white-space:pre-line; /*두줄로떨어질수잇게만들어줌*/
+}
+.spot article figure figcaption strong{}
+.spot article figure figcaption a{}
+.spot article figure figcaption a mark{
+    background-color:#fed38e;
+}
