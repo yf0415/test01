@@ -1,0 +1,106 @@
+@import url('../css/common.css');
+
+
+header{
+    width:90%; margin:50px auto;
+    position:relative;
+    
+    display:flex; /*밑에잇던 자식요소가 위로 올라옴..*/
+    justify-content: space-between; /*양끝으로 붙게만드는 태그*/
+    align-items:center; /*디스플레이 플렉스랑 얼라인아이템센터쓰면 글씨가 크기영역안에서 중앙으로옴*/
+}
+header h1{
+}
+header nav{
+    margin-right:100px;
+}
+header nav a{
+    display: inline-block;/*(애프터 쓰려고 넣음)*/  
+    padding:0 10px; /*(a태그한테 간격줌)*/    
+    position:relative;
+}
+
+header nav a:after{ /*a태그의 자식요소로 after가 들어가잇어서 a태그의 크기만큼 after의 크기도 결정됨*/
+    content:'';
+    height:2px;
+    background-color:#000;
+    /*display: block;*/ /*(width100%를 가지고잇음)*/
+    
+    width:0%;
+    
+    position:absolute; /*(위치안정해주면0나옴)*/
+    left:50%; bottom:-3px; /*(버튼이 왼쪽50퍼기준에위치하고 밑으로 3픽셀 떨어져잇음)*/
+    
+    transition:.5s;
+}
+
+header nav a:hover:after{
+    width:100%;
+    left:0;
+}
+
+.menu-trigger{
+    width:40px; height:30px;
+    position:absolute;
+    right:0; top:clac(50% - 15px);
+/*    transform:translateY(-50%); (x,y축을 컨텐츠의 크기를기준으로 움직일수잇게함 -50%을쓰면 딱 중앙으로 오게할수잇음... 근데 height알고잇으면 calc사용해서 50%-15px해도됨>translateN은 height값 모를때사용함)*/
+}
+.menu-trigger span{
+    width:100%; height:2px;
+    background:#000;
+    
+    position:absolute; /*공중에 띄우면 가운데 놈이 사라지더라도 네모칸안의 모양이 유지됨*/
+    transition:.5s;
+}
+
+.menu-trigger span:nth-of-type(1){
+    top:0; left:0;
+}
+.menu-trigger span:nth-of-type(2){
+    top:50%; left:0;
+    transform:translateY(-50%); /*(x,y축을 컨텐츠의 크기를기준으로 움직일수잇게함)*/
+}
+.menu-trigger span:nth-of-type(3){
+    bottom:0; left:0;
+}
+
+/*menu hover 에러아닌 에러가 또 발생할 수 잇기 때문에 되도록 부모-자식-자식 or 클래스로 .~~ 로하는게좋을듯*/
+
+.menu-trigger:hover span:nth-of-type(1),
+.menu-trigger.active span:nth-of-type(1){ /*<나중에사용되는건데걍일단써둠..아직은호버로사용해서복습하면될듯*/
+    transform: translateY(14px) rotate(45deg); /*각도를 틀어버리는 태그*/
+    
+}
+.menu-trigger:hover span:nth-of-type(2),
+.menu-trigger.active span:nth-of-type(2){
+    opacity: 0;
+}
+.menu-trigger:hover span:nth-of-type(3),
+.menu-trigger.active span:nth-of-type(3){
+    transform: translateY(-14px) rotate(-45deg);
+}
+
+/*  태그에서 "." <점은 class를 말한거*/
+
+
+main{
+    width:90%; margin:0 auto;
+}
+main section{
+    background:url('../img/img_spot.jpg') no-repeat;
+    height:900px;
+    background-size:cover;/*=100%(가로) 100%(세로) 100%사이즈맞춤=cover;*/
+    
+    display:flex; /*flex(콘텐츠에맞춰진 가로와 height값에 맞춰진 세로)는 본인 스스로움직이고 변형되는 게 아니기 때문에 p태그를 포함하고잇는 부모인 section한테 명령을내려야함*/
+    justify-content: center; /*(콘텐츠가운데정렬, flex-end/start는 ㅏ가로기준 마지막이랑처음에정렬됨)*/
+    align-items:center; /*(stretch는 기본값에설정된그대로, flex-end/start는 세로기준 마지막이랑 처음으로감)  */  
+}
+main section p{
+    color:#fff;
+    white-space:pre-line; /*(html에써둔대로표출함)*/
+    text-align: center; 
+}
+main section p strong{
+    font-size:5em; /*(현재사이즈에 곱하기 5)*/
+}
+
